@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP MASTER
+        - Ремонт бытовой техники</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">TOP MASTER</a>
+            <ul class="nav-links">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="header-contact">
+                <a href="tel:+79999999999" class="header-contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+7 (939) 870-80-70</span>
+                </a>
+                <div class="header-contact-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Пн-Пт: 9:00 - 20:00</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">Срочный ремонт</div>
+                <h1>Ремонт бытовой техники</h1>
+                <h2>в Тольятти и пригороде</h2>
+                <div class="hero-highlight">
+                    <div class="highlight-content">
+                        <i class="fas fa-truck"></i>
+                        <div class="highlight-text">
+                            <span class="main-text">Выезд на дом</span>
+                            <span class="discount">Скидка 10%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-advantages">
+                <div class="advantage-row">
+                    <div class="hero-advantage">
+                        <div class="advantage-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="advantage-text">
+                            <h4>Быстрый выезд</h4>
+                            <p>в течение 2 часов</p>
+                        </div>
+                    </div>
+                    <div class="hero-advantage">
+                        <div class="advantage-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="advantage-text">
+                            <h4>Гарантия качества</h4>
+                            <p>до 2 лет</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advantage-row">
+                    <div class="hero-advantage">
+                        <div class="advantage-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="advantage-text">
+                            <h4>Оригинальные запчасти</h4>
+                            <p>качественные детали</p>
+                        </div>
+                    </div>
+                    <div class="hero-advantage">
+                        <div class="advantage-icon">
+                            <i class="fas fa-ruble-sign"></i>
+                        </div>
+                        <div class="advantage-text">
+                            <h4>Доступные цены</h4>
+                            <p>без скрытых платежей</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="advantage-row">
+                    <div class="hero-advantage">
+                        <div class="advantage-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="advantage-text">
+                            <h4>Опытные мастера</h4>
+                            <p>профессионалы</p>
+                        </div>
+                    </div>
+                    <div class="hero-advantage cta-container">
+                        <a href="#contacts" class="cta-button">
+                            <span>Вызвать мастера</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Прокрутите вниз</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section class="application-form">
+        <div class="container">
+            <div class="form-steps">
+                <div class="form-header">
+                    <h2>Получите <span class="highlight">предварительную стоимость</span> ремонта за <span class="time">1 минуту</span></h2>
+                </div>
+                <div class="step active" id="step1">
+                    <h3>Выберите тип техники</h3>
+                    <div class="options-grid">
+                        <button class="option-btn" data-value="Холодильник">
+                            <i class="fas fa-snowflake"></i>
+                            Холодильник
+                        </button>
+                        <button class="option-btn" data-value="Стиральная машина">
+                            <i class="fas fa-tshirt"></i>
+                            Стиральная машина
+                        </button>
+                        <button class="option-btn" data-value="Посудомоечная машина">
+                            <i class="fas fa-utensils"></i>
+                            Посудомоечная машина
+                        </button>
+                        <button class="option-btn" data-value="Духовой шкаф">
+                            <i class="fas fa-fire"></i>
+                            Духовой шкаф
+                        </button>
+                        <button class="option-btn" data-value="Варочная панель">
+                            <i class="fas fa-burn"></i>
+                            Варочная панель
+                        </button>
+                        <button class="option-btn" data-value="Кондиционер">
+                            <i class="fas fa-wind"></i>
+                            Кондиционер
+                        </button>
+                    </div>
+                    <div class="form-navigation">
+                        <button class="nav-btn prev-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button class="nav-btn next-btn">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="step" data-step="2">
+                    <h3>Где находится?</h3>
+                    <div class="options-grid">
+                        <button class="option-btn" data-value="in-city">
+                            <i class="fas fa-map-marker-alt"></i>
+                            В черте Тольятти
+                        </button>
+                        <button class="option-btn" data-value="10km">
+                            <i class="fas fa-road"></i>
+                            От Тольятти до 10 км
+                        </button>
+                        <button class="option-btn" data-value="20km">
+                            <i class="fas fa-road"></i>
+                            От Тольятти до 20 км
+                        </button>
+                        <button class="option-btn" data-value="30km">
+                            <i class="fas fa-road"></i>
+                            От Тольятти до 30 км
+                        </button>
+                        <button class="option-btn" data-value="more30km">
+                            <i class="fas fa-road"></i>
+                            От Тольятти более 30 км
+                        </button>
+                    </div>
+                    <div class="form-navigation">
+                        <button class="nav-btn prev-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button class="nav-btn next-btn">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="step" data-step="3">
+                    <h3>Когда планируете ремонт?</h3>
+                    <div class="options-grid">
+                        <button class="option-btn" data-value="today">
+                            <i class="fas fa-calendar-day"></i>
+                            Сегодня
+                        </button>
+                        <button class="option-btn" data-value="tomorrow">
+                            <i class="fas fa-calendar-alt"></i>
+                            Завтра
+                        </button>
+                        <button class="option-btn" data-value="week">
+                            <i class="fas fa-calendar-week"></i>
+                            В течение недели
+                        </button>
+                        <button class="option-btn" data-value="month">
+                            <i class="fas fa-calendar"></i>
+                            В течение месяца
+                        </button>
+                    </div>
+                    <div class="form-navigation">
+                        <button class="nav-btn prev-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button class="nav-btn next-btn">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="step" data-step="4">
+                    <h3>Опишите проблему</h3>
+                    <div class="options-grid">
+                        <button class="option-btn" data-value="not_working">
+                            <i class="fas fa-power-off"></i>
+                            Не включается
+                        </button>
+                        <button class="option-btn" data-value="noise">
+                            <i class="fas fa-volume-up"></i>
+                            Шумит
+                        </button>
+                        <button class="option-btn" data-value="leak">
+                            <i class="fas fa-tint"></i>
+                            Протекает
+                        </button>
+                        <button class="option-btn" data-value="error">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Показывает ошибку
+                        </button>
+                        <button class="option-btn" data-value="other">
+                            <i class="fas fa-question"></i>
+                            Другая проблема
+                        </button>
+                    </div>
+                    <div class="form-navigation">
+                        <button class="nav-btn prev-btn">
+                            <i class="fas fa-arrow-left"></i>
+                            Назад
+                        </button>
+                        <button class="nav-btn next-btn">
+                            Далее
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="step" data-step="5">
+                    <h3>Ваши контактные данные</h3>
+                    <div class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="selected-options">
+                            <h4>Выбранные параметры:</h4>
+                            <ul class="options-list"></ul>
+                        </div>
+                        <div class="form-navigation">
+                            <button class="nav-btn prev-btn">
+                                <i class="fas fa-arrow-left"></i>
+                                Назад
+                            </button>
+                            <button type="submit" class="submit-btn">
+                                Отправить заявку
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2>Наши услуги</h2>
+                <div class="services-badge">Профессиональный ремонт</div>
+                <p class="services-subtitle">Качественный ремонт бытовой техники всех марок</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Ремонт холодильников</h3>
+                    <p>Профессиональный ремонт холодильников всех марок и моделей</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-ice-cream"></i>
+                    <h3>Ремонт морозильных камер</h3>
+                    <p>Качественный ремонт морозильных камер любой сложности</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Ремонт стиральных машин</h3>
+                    <p>Быстрый и надежный ремонт стиральных машин</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Ремонт варочных панелей</h3>
+                    <p>Профессиональный ремонт варочных панелей</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Ремонт электроплит</h3>
+                    <p>Качественный ремонт электроплит всех типов</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-door-closed"></i>
+                    <h3>Замена уплотнителя</h3>
+                    <p>Замена уплотнителя на холодильнике</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Ремонт посудомоечных машин</h3>
+                    <p>Качественный ремонт посудомоечных машин всех марок</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-temperature-high"></i>
+                    <h3>Ремонт духовых шкафов</h3>
+                    <p>Профессиональный ремонт духовых шкафов</p>
+                    <a href="#" class="order-button">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-header">
+                <h2>О нашей компании</h2>
+                <div class="about-badge">Наша команда</div>
+                <p class="about-subtitle">Профессиональный сервис по ремонту техники</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-main">
+                    <div class="about-image">
+                        <img src="images/about.jpg" alt="О нашей компании">
+                    </div>
+                    
+                    <div class="about-info">
+                        <div class="about-text">
+                            <p>Мы - команда профессионалов с многолетним опытом в ремонте и обслуживании техники. Наша компания предоставляет качественные услуги по ремонту и диагностике различных устройств.</p>
+                        </div>
+                        
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-history"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">10+</span>
+                                    <span class="stat-label">Лет опыта</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-tools"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">5000+</span>
+                                    <span class="stat-label">Успешных ремонтов</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-item">
+                                <div class="stat-icon">
+                                    <i class="fas fa-smile"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <span class="stat-number">98%</span>
+                                    <span class="stat-label">Довольных клиентов</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Быстрый выезд</h4>
+                            <p>Мастер приедет в течение 30 минут после вызова</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Гарантия качества</h4>
+                            <p>Гарантия на все виды работ до 2 лет</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Оригинальные запчасти</h4>
+                            <p>Используем только оригинальные комплектующие</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="feature-content">
+                            <h4>Профессиональные мастера</h4>
+                            <p>Квалифицированные специалисты с большим опытом</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prices">
+        <div class="container">
+            <div class="prices-header">
+                <h2 class="section-title">Наши цены</h2>
+                <div class="prices-badge">Доступные цены</div>
+                <p class="section-subtitle">Прозрачные цены на все виды ремонта</p>
+            </div>
+            
+            <div class="prices-content">
+                <div class="price-category">
+                    <div class="category-header">
+                        <i class="fas fa-snowflake"></i>
+                        <h3>Холодильное оборудование</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Диагностика</span>
+                            <span class="price-value">Бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт холодильника</span>
+                            <span class="price-value">от 300 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт морозильной камеры</span>
+                            <span class="price-value">от 400 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена уплотнителя</span>
+                            <span class="price-value">от 500 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-category">
+                    <div class="category-header">
+                        <i class="fas fa-tshirt"></i>
+                        <h3>Стиральные машины</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Диагностика</span>
+                            <span class="price-value">Бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт стиральной машины</span>
+                            <span class="price-value">от 300 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт посудомоечной машины</span>
+                            <span class="price-value">от 400 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена подшипника</span>
+                            <span class="price-value">от 800 ₽</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-category">
+                    <div class="category-header">
+                        <i class="fas fa-fire"></i>
+                        <h3>Кухонная техника</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Диагностика</span>
+                            <span class="price-value">Бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт варочной панели</span>
+                            <span class="price-value">от 300 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт духового шкафа</span>
+                            <span class="price-value">от 400 ₽</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт электроплиты</span>
+                            <span class="price-value">от 500 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="prices-note">
+                <p>* Точная стоимость ремонта определяется после диагностики</p>
+                <p>* Выезд мастера в пределах города - бесплатно</p>
+                <p>* Гарантия на все виды работ до 2 лет</p>
+            </div>
+
+            <div class="prices-cta">
+                <div class="cta-content">
+                    <div class="cta-text">
+                        <h3>Готовы начать ремонт?</h3>
+                        <p>Оставьте заявку прямо сейчас и получите бесплатную диагностику!</p>
+                    </div>
+                    <a class="order-button">
+                        <span>Оставить заявку</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <h2>Отзывы клиентов</h2>
+                <div class="reviews-badge">Нам доверяют</div>
+                <p class="reviews-subtitle">Что говорят наши клиенты о качестве нашего сервиса</p>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Отличный сервис! Быстро и качественно починили мой холодильник. Мастер приехал в течение часа, нашел проблему и устранил её. Очень вежливый и профессиональный специалист.</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Александр</h4>
+                            <p>Холодильник Samsung</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">Очень довольна работой сервиса. Починили стиральную машину за один визит. Цены адекватные, мастер объяснил все детали ремонта. Рекомендую!</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Елена</h4>
+                            <p>Стиральная машина LG</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">Хороший сервисный центр. Починили мою старую электроплиту, которую другие сервисы отказались ремонтировать. Мастер приехал вовремя, работал аккуратно. Спасибо!</p>
+                    <div class="review-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Михаил</h4>
+                            <p>Электроплита Bosch</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work Section -->
+    <section class="how-we-work">
+        <div class="how-we-work-container">
+            <div class="how-we-work-header">
+                <h2>Как мы работаем</h2>
+                <div class="how-we-work-badge">Процесс ремонта</div>
+                <p class="how-we-work-subtitle">Прозрачный и понятный процесс ремонта вашей техники</p>
+            </div>
+
+            <div class="work-steps">
+                <div class="work-step">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Вызов мастера</h3>
+                        <p>Оставьте заявку на сайте или позвоните нам. Наш оператор уточнит детали и согласует удобное время визита мастера.</p>
+                    </div>
+                </div>
+
+                <div class="work-step">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Диагностика</h3>
+                        <p>Мастер приезжает к вам, проводит бесплатную диагностику и называет точную стоимость ремонта.</p>
+                    </div>
+                </div>
+
+                <div class="work-step">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Ремонт</h3>
+                        <p>После согласования цены мастер сразу приступает к ремонту. Используем только оригинальные запчасти.</p>
+                    </div>
+                </div>
+
+                <div class="work-step">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="step-content">
+                        <h3>Гарантия</h3>
+                        <p>После ремонта вы получаете гарантию на работу и запчасти. Мастер проверяет работу техники вместе с вами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="why-choose-us-container">
+            <div class="why-choose-us-header">
+                <h2>Почему выбирают нас</h2>
+                <div class="why-choose-us-badge">Наши преимущества</div>
+                <p class="why-choose-us-subtitle">Мы предлагаем лучший сервис по ремонту бытовой техники в Тольятти</p>
+            </div>
+
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Быстрый выезд</h3>
+                        <p>Мастер приедет к вам в течение 30 минут после вызова. Работаем без выходных и праздников.</p>
+                    </div>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Гарантия качества</h3>
+                        <p>Даем гарантию до 2 лет на все виды работ и используемые запчасти. Безопасный ремонт.</p>
+                    </div>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Оригинальные запчасти</h3>
+                        <p>Используем только оригинальные комплектующие от производителей. Собственный склад запчастей.</p>
+                    </div>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Опытные мастера</h3>
+                        <p>Наши специалисты имеют опыт работы от 5 лет. Регулярно проходят обучение и сертификацию.</p>
+                    </div>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-ruble-sign"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Доступные цены</h3>
+                        <p>Предлагаем конкурентные цены без скрытых платежей. Бесплатная диагностика и консультация.</p>
+                    </div>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="advantage-content">
+                        <h3>Ремонт на дому</h3>
+                        <p>Выполняем ремонт на дому без необходимости везти технику в сервис. Экономия вашего времени.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="contacts-container">
+            <div class="contacts-header">
+                <h2>Свяжитесь с нами</h2>
+                <div class="contacts-badge">Быстрый ответ</div>
+                <p class="contacts-subtitle">Оставьте заявку и мы свяжемся с вами в течение 15 минут</p>
+            </div>
+
+            <div class="contacts-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Телефон</h4>
+                            <p>+7 (939) 870-80-70</p>
+                            <p>Круглосуточная поддержка</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Режим работы</h4>
+                            <p>Пн-Пт: 9:00 - 20:00</p>
+                            <p>Сб-Вс: 10:00 - 18:00</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Ваш телефон" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="" disabled selected>Выберите тип техники</option>
+                                <option value="fridge">Холодильник</option>
+                                <option value="freezer">Морозильная камера</option>
+                                <option value="washer">Стиральная машина</option>
+                                <option value="dishwasher">Посудомоечная машина</option>
+                                <option value="oven">Духовой шкаф</option>
+                                <option value="cooktop">Варочная панель</option>
+                                <option value="microwave">Микроволновая печь</option>
+                                <option value="aircon">Кондиционер</option>
+                                <option value="other">Другая техника</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Опишите проблему" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Отправить заявку</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>МастерТех</h4>
+                <p>Профессиональный ремонт бытовой техники в Тольятти и пригороде. Мы работаем с 2010 года и заслужили доверие тысяч клиентов.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                    <a href="#" aria-label="Телеграм"><i class="fab fa-telegram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> +7 (939) 870-80-70</p>
+                <p><i class="fas fa-envelope"></i> info@mastertech.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Тольятти, ул. Примерная, д. 123</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Режим работы</h4>
+                <p><i class="fas fa-clock"></i> Пн-Пт: 9:00 - 20:00</p>
+                <p><i class="fas fa-clock"></i> Сб-Вс: 10:00 - 18:00</p>
+                <p><i class="fas fa-truck"></i> Выезд мастера: круглосуточно</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Услуги</h4>
+                <p><i class="fas fa-snowflake"></i> Ремонт холодильников</p>
+                <p><i class="fas fa-tshirt"></i> Ремонт стиральных машин</p>
+                <p><i class="fas fa-fire"></i> Ремонт плит и духовок</p>
+                <p><i class="fas fa-utensils"></i> Ремонт посудомоечных машин</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 МастерТех. Все права защищены.</p>
+            <p>ИП Иванов И.И. ОГРН 1234567890123</p>
+        </div>
+    </footer>
+
+    <!-- Модальное окно заказа -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <h3>Заказать услугу</h3>
+            <form class="order-form">
+                <div class="form-group">
+                    <label for="orderName">Ваше имя</label>
+                    <input type="text" id="orderName" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderPhone">Номер телефона</label>
+                    <input type="tel" id="orderPhone" required>
+                </div>
+                <button type="submit" class="submit-button">
+                    <span>Отправить заявку</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="fixed-contact-buttons">
+        <a href="tel:+7XXXXXXXXXX" class="contact-button phone-button" aria-label="Позвонить">
+            <i class="fas fa-phone"></i>
+        </a>
+        <a href="https://wa.me/7XXXXXXXXXX" class="contact-button whatsapp-button" aria-label="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://t.me/username" class="contact-button telegram-button" aria-label="Telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
