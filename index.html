@@ -14,23 +14,27 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">TOP MASTER</a>
-            <ul class="nav-links">
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#prices">Цены</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-            <div class="header-contact">
-                <a href="tel:+79999999999" class="header-contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+7 (939) 870-80-70</span>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="MasterTech Logo">
                 </a>
-                <div class="header-contact-item">
-                    <i class="fas fa-clock"></i>
-                    <span>Пн-Пт: 9:00 - 20:00</span>
-                </div>
             </div>
+            <div class="nav-links">
+                <a href="#about">О нас</a>
+                <a href="#services">Услуги</a>
+                <a href="#prices">Цены</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#contacts">Контакты</a>
+            </div>
+            <a href="tel:+79991234567" class="header-contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+7 (939) 870-80-70</span>
+            </a>
+            <button class="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -127,28 +131,40 @@
                     <h3>Выберите тип техники</h3>
                     <div class="options-grid">
                         <button class="option-btn" data-value="Холодильник">
-                            <i class="fas fa-snowflake"></i>
-                            Холодильник
+                            <div class="option-icon">
+                                <img src="images/appliances/fridge.png" alt="Холодильник">
+                            </div>
+                            <span>Холодильник</span>
                         </button>
                         <button class="option-btn" data-value="Стиральная машина">
-                            <i class="fas fa-tshirt"></i>
-                            Стиральная машина
+                            <div class="option-icon">
+                                <img src="images/appliances/washer.png" alt="Стиральная машина">
+                            </div>
+                            <span>Стиральная машина</span>
                         </button>
                         <button class="option-btn" data-value="Посудомоечная машина">
-                            <i class="fas fa-utensils"></i>
-                            Посудомоечная машина
+                            <div class="option-icon">
+                                <img src="images/appliances/dishwasher.png" alt="Посудомоечная машина">
+                            </div>
+                            <span>Посудомоечная машина</span>
                         </button>
                         <button class="option-btn" data-value="Духовой шкаф">
-                            <i class="fas fa-fire"></i>
-                            Духовой шкаф
+                            <div class="option-icon">
+                                <img src="images/appliances/oven.png" alt="Духовой шкаф">
+                            </div>
+                            <span>Духовой шкаф</span>
                         </button>
                         <button class="option-btn" data-value="Варочная панель">
-                            <i class="fas fa-burn"></i>
-                            Варочная панель
+                            <div class="option-icon">
+                                <img src="images/appliances/cooktop.png" alt="Варочная панель">
+                            </div>
+                            <span>Варочная панель</span>
                         </button>
-                        <button class="option-btn" data-value="Кондиционер">
-                            <i class="fas fa-wind"></i>
-                            Кондиционер
+                        <button class="option-btn" data-value="other">
+                            <div class="option-icon">
+                                <img src="images/appliances/other.png" alt="Другое">
+                            </div>
+                            <span>Другое</span>
                         </button>
                     </div>
                     <div class="form-navigation">
@@ -276,16 +292,14 @@
                         <div class="form-group">
                             <input type="tel" placeholder="Ваш телефон" required>
                         </div>
-                        <div class="selected-options">
-                            <h4>Выбранные параметры:</h4>
-                            <ul class="options-list"></ul>
+                        
                         </div>
                         <div class="form-navigation">
                             <button class="nav-btn prev-btn">
                                 <i class="fas fa-arrow-left"></i>
                                 Назад
                             </button>
-                            <button type="submit" class="submit-btn">
+                            <button type="submit" class="nav-btn next-btn">
                                 Отправить заявку
                                 <i class="fas fa-paper-plane"></i>
                             </button>
@@ -351,6 +365,311 @@
                     <h3>Ремонт духовых шкафов</h3>
                     <p>Профессиональный ремонт духовых шкафов</p>
                     <a href="#" class="order-button">Заказать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prices" id="prices">
+        <div class="container">
+            <div class="prices-header">
+                <h2 class="section-title">Наши цены</h2>
+                <div class="prices-badge">Доступные цены</div>
+                <p class="section-subtitle">Прозрачные цены на все виды ремонта</p>
+            </div>
+            <div class="prices-grid">
+                <div class="price-category" data-category="fridge">
+                    <div class="category-header">
+                        <i class="fas fa-snowflake"></i>
+                        <h3>Холодильники</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Вызов мастера и диагностика</span>
+                            <span class="price-value">бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена фильтра-осушителя</span>
+                            <span class="price-value">от 380 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт электросхемы</span>
+                            <span class="price-value">от 900 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена терморегулятора</span>
+                            <span class="price-value">от 830 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Ремонт соленоидного клапана</span>
+                            <span class="price-value">от 730 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена таймера</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена уплотнителя</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Прочистка дренажной системы</span>
+                            <span class="price-value">от 350 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Заправка холодильного агрегата</span>
+                            <span class="price-value">от 1600 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена нагревателя испарителя</span>
+                            <span class="price-value">от 1500 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена трубопровода теплообменника</span>
+                            <span class="price-value">от 1950 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт электронного блока управления</span>
+                            <span class="price-value">от 950 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена электронного блока управления</span>
+                            <span class="price-value">от 2000 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена компрессора</span>
+                            <span class="price-value">от 2400 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт компрессора</span>
+                            <span class="price-value">от 1450 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт пускозащитного реле</span>
+                            <span class="price-value">от 370 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт вентилятора</span>
+                            <span class="price-value">от 450 руб.</span>
+                        </div>
+                    </div>
+                    <button class="show-more-btn">Показать все</button>
+                </div>
+
+                <div class="price-category" data-category="washer">
+                    <div class="category-header">
+                        <i class="fas fa-tint"></i>
+                        <h3>Стиральные машины</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Вызов мастера и диагностика</span>
+                            <span class="price-value">бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Устранение засора</span>
+                            <span class="price-value">от 450 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена насоса</span>
+                            <span class="price-value">от 650 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена датчика уровня воды</span>
+                            <span class="price-value">от 750 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Чистка системы слива</span>
+                            <span class="price-value">от 450 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена ремня привода</span>
+                            <span class="price-value">от 550 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена электронного модуля</span>
+                            <span class="price-value">от 750 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт двигателя</span>
+                            <span class="price-value">от 850 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена сетевого шнура</span>
+                            <span class="price-value">от 300 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена ТЭНа</span>
+                            <span class="price-value">от 650 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена амортизаторов</span>
+                            <span class="price-value">от 750 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт платы</span>
+                            <span class="price-value">от 850 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена фильтра насоса</span>
+                            <span class="price-value">от 650 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена устройства блокировки люка</span>
+                            <span class="price-value">от 750 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена ручек, петель</span>
+                            <span class="price-value">от 350 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена заливного клапана</span>
+                            <span class="price-value">от 350 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Удаление посторонних предметов</span>
+                            <span class="price-value">от 700 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена фильтра залива воды</span>
+                            <span class="price-value">от 450 руб.</span>
+                        </div>
+                    </div>
+                    <button class="show-more-btn">Показать все</button>
+                </div>
+
+                <div class="price-category" data-category="dishwasher">
+                    <div class="category-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Посудомойки</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Вызов мастера и диагностика</span>
+                            <span class="price-value">бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена ручек</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Замена сетевой кнопки</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Чистка и замена фильтров</span>
+                            <span class="price-value">от 600 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Прочистка засора</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена клапанов</span>
+                            <span class="price-value">от 1000 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена насоса</span>
+                            <span class="price-value">от 1500 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена ТЭНа</span>
+                            <span class="price-value">от 1500 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Замена конденсатора</span>
+                            <span class="price-value">от 1500 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Ремонт электроцепи</span>
+                            <span class="price-value">от 2000 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Удаление посторонних предметов</span>
+                            <span class="price-value">от 1200 руб.</span>
+                        </div>
+                    </div>
+                    <button class="show-more-btn">Показать все</button>
+                </div>
+
+                <div class="price-category" data-category="cooktop">
+                    <div class="category-header">
+                        <i class="fas fa-fire"></i>
+                        <h3>Варочные панели</h3>
+                    </div>
+                    <div class="price-list">
+                        <div class="price-item">
+                            <span class="service-name">Вызов мастера и диагностика</span>
+                            <span class="price-value">бесплатно</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Конфорка не греет/не работает</span>
+                            <span class="price-value">от 520 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Не горит индикатор</span>
+                            <span class="price-value">от 490 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Не работает сенсорная кнопка</span>
+                            <span class="price-value">от 580 руб.</span>
+                        </div>
+                        <div class="price-item">
+                            <span class="service-name">Бьет током/слышен треск</span>
+                            <span class="price-value">от 560 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Самопроизвольно выключается</span>
+                            <span class="price-value">от 580 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Сломался переключатель</span>
+                            <span class="price-value">от 490 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Панель не включается</span>
+                            <span class="price-value">от 490 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Панель заблокирована</span>
+                            <span class="price-value">от 550 руб.</span>
+                        </div>
+                        <div class="price-item hidden">
+                            <span class="service-name">Выдает ошибку</span>
+                            <span class="price-value">от 540 руб.</span>
+                        </div>
+                    </div>
+                    <button class="show-more-btn">Показать все</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prices-cta">
+        <div class="container">
+            <div class="prices-cta-content">
+                <div class="prices-cta-text">
+                    <h2>Нужен ремонт?</h2>
+                    <p>Оставьте заявку прямо сейчас и получите:</p>
+                    <ul class="prices-cta-benefits">
+                        <li><i class="fas fa-check-circle"></i> Бесплатную диагностику</li>
+                        <li><i class="fas fa-check-circle"></i> Скидку 10% на ремонт</li>
+                        <li><i class="fas fa-check-circle"></i> Гарантию до 2 лет</li>
+                    </ul>
+                </div>
+                <div class="prices-cta-form">
+                    <form class="quick-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Ваш телефон" required>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <span>Вызвать мастера</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -454,114 +773,72 @@
         </div>
     </section>
 
-    <section class="prices">
-        <div class="container">
-            <div class="prices-header">
-                <h2 class="section-title">Наши цены</h2>
-                <div class="prices-badge">Доступные цены</div>
-                <p class="section-subtitle">Прозрачные цены на все виды ремонта</p>
+    <section class="brands-section">
+        <div class="brands-container">
+            <div class="brands-header">
+                <h2 class="brands-title">Отремонтируем <span>бытовую технику</span> любого бренда</h2>
+                <p class="brands-subtitle">Мы работаем со всеми популярными производителями</p>
             </div>
-            
-            <div class="prices-content">
-                <div class="price-category">
-                    <div class="category-header">
-                        <i class="fas fa-snowflake"></i>
-                        <h3>Холодильное оборудование</h3>
-                    </div>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <span class="service-name">Диагностика</span>
-                            <span class="price-value">Бесплатно</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт холодильника</span>
-                            <span class="price-value">от 300 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт морозильной камеры</span>
-                            <span class="price-value">от 400 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Замена уплотнителя</span>
-                            <span class="price-value">от 500 ₽</span>
-                        </div>
-                    </div>
+            <div class="brands-grid">
+                <div class="brand-logo">
+                    <img src="images/brands/samsung.png" alt="Samsung" loading="lazy">
                 </div>
-
-                <div class="price-category">
-                    <div class="category-header">
-                        <i class="fas fa-tshirt"></i>
-                        <h3>Стиральные машины</h3>
-                    </div>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <span class="service-name">Диагностика</span>
-                            <span class="price-value">Бесплатно</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт стиральной машины</span>
-                            <span class="price-value">от 300 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт посудомоечной машины</span>
-                            <span class="price-value">от 400 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Замена подшипника</span>
-                            <span class="price-value">от 800 ₽</span>
-                        </div>
-                    </div>
+                <div class="brand-logo">
+                    <img src="images/brands/lg.png" alt="LG" loading="lazy">
                 </div>
-
-                <div class="price-category">
-                    <div class="category-header">
-                        <i class="fas fa-fire"></i>
-                        <h3>Кухонная техника</h3>
-                    </div>
-                    <div class="price-list">
-                        <div class="price-item">
-                            <span class="service-name">Диагностика</span>
-                            <span class="price-value">Бесплатно</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт варочной панели</span>
-                            <span class="price-value">от 300 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт духового шкафа</span>
-                            <span class="price-value">от 400 ₽</span>
-                        </div>
-                        <div class="price-item">
-                            <span class="service-name">Ремонт электроплиты</span>
-                            <span class="price-value">от 500 ₽</span>
-                        </div>
-                    </div>
+                <div class="brand-logo">
+                    <img src="images/brands/bosch.png" alt="Bosch" loading="lazy">
                 </div>
-            </div>
-
-            <div class="prices-note">
-                <p>* Точная стоимость ремонта определяется после диагностики</p>
-                <p>* Выезд мастера в пределах города - бесплатно</p>
-                <p>* Гарантия на все виды работ до 2 лет</p>
-            </div>
-
-            <div class="prices-cta">
-                <div class="cta-content">
-                    <div class="cta-text">
-                        <h3>Готовы начать ремонт?</h3>
-                        <p>Оставьте заявку прямо сейчас и получите бесплатную диагностику!</p>
-                    </div>
-                    <a class="order-button">
-                        <span>Оставить заявку</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
+                <div class="brand-logo">
+                    <img src="images/brands/siemens.png" alt="Siemens" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/whirlpool.png" alt="Whirlpool" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/electrolux.png" alt="Electrolux" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/indesit.png" alt="Indesit" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/ariston.png" alt="Ariston" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/hotpoint.png" alt="Hotpoint" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/candy.png" alt="Candy" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/haier.png" alt="Haier" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/beko.png" alt="Beko" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/gorenje.png" alt="Gorenje" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/vestel.png" alt="Vestel" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/atlant.png" alt="Atlant" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/stinol.png" alt="Stinol" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/daewoo.png" alt="Daewoo" loading="lazy">
+                </div>
+                <div class="brand-logo">
+                    <img src="images/brands/zanussi.png" alt="Zanussi" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <div class="reviews-container">
             <div class="reviews-header">
                 <h2>Отзывы клиентов</h2>
@@ -633,7 +910,6 @@
         </div>
     </section>
 
-    <!-- How We Work Section -->
     <section class="how-we-work">
         <div class="how-we-work-container">
             <div class="how-we-work-header">
@@ -690,7 +966,6 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
     <section class="why-choose-us">
         <div class="why-choose-us-container">
             <div class="why-choose-us-header">
@@ -780,7 +1055,6 @@
                         <div class="contact-details">
                             <h4>Телефон</h4>
                             <p>+7 (939) 870-80-70</p>
-                            <p>Круглосуточная поддержка</p>
                         </div>
                     </div>
 
@@ -821,10 +1095,16 @@
                         <div class="form-group">
                             <textarea placeholder="Опишите проблему" required></textarea>
                         </div>
-                        <button type="submit" class="submit-button">
-                            <span>Отправить заявку</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <div class="form-navigation">
+                            <button class="nav-btn prev-btn">
+                                <i class="fas fa-arrow-left"></i>
+                                Назад
+                            </button>
+                            <button type="submit" class="nav-btn next-btn">
+                                Отправить заявку
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -869,10 +1149,12 @@
         <div class="footer-bottom">
             <p>&copy; 2024 МастерТех. Все права защищены.</p>
             <p>ИП Иванов И.И. ОГРН 1234567890123</p>
+            <div class="developer-credit">
+                <a href="https://mishlen-team.ru" target="_blank" rel="noopener noreferrer">Разработка сайта - Mishlen Team</a>
+            </div>
         </div>
     </footer>
 
-    <!-- Модальное окно заказа -->
     <div class="modal-overlay" id="orderModal">
         <div class="modal-content">
             <button class="modal-close">&times;</button>

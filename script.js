@@ -59,13 +59,21 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScroll = currentScroll;
     });
 
+    // Отслеживание прокрутки для изменения стиля шапки
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
     // Form Application Logic
     const formSteps = document.querySelectorAll('.step');
-    const optionBtns = document.querySelectorAll('.option-btn');
+    const optionButtons = document.querySelectorAll('.option-btn');
     const optionsList = document.querySelector('.options-list');
-    const submitBtn = document.querySelector('.submit-btn');
     
-    let currentStep = 1;
+    let currentStep = 0;
     const totalSteps = formSteps.length;
     const selectedOptions = {
         equipment: '',
@@ -77,76 +85,80 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show current step
     function showStep(step) {
         formSteps.forEach(s => s.classList.remove('active'));
-        formSteps[step - 1].classList.add('active');
+        formSteps[step].classList.add('active');
         currentStep = step;
-        
-        // Update navigation buttons
-        const prevBtn = formSteps[step - 1].querySelector('.prev-btn');
-        const nextBtn = formSteps[step - 1].querySelector('.next-btn');
-        
-        if (prevBtn) {
-            prevBtn.disabled = step === 1;
-        }
-        
-        if (nextBtn) {
-            nextBtn.textContent = step === totalSteps - 1 ? 'Отправить' : 'Далее';
-            nextBtn.disabled = true;
-        }
 
         // Update selected options list on last step
-        if (step === totalSteps) {
+        if (step === totalSteps - 1) {
             updateOptionsList();
         }
     }
 
-    // Handle option selection
-    optionBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            const step = this.closest('.step').dataset.step;
-            const value = this.dataset.value;
-            const text = this.textContent;
-
-            // Remove selected class from all buttons in current step
-            this.closest('.options-grid').querySelectorAll('.option-btn').forEach(b => {
-                b.classList.remove('selected');
+    // Обработка выбора опции
+    optionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const step = this.closest('.step');
+            const buttonsInStep = step.querySelectorAll('.option-btn');
+            
+            // Снимаем выделение со всех кнопок в текущем шаге
+            buttonsInStep.forEach(btn => {
+                btn.classList.remove('selected');
             });
-
-            // Add selected class to clicked button
+            
+            // Выделяем выбранную кнопку
             this.classList.add('selected');
-
-            // Store selected option
-            switch(step) {
-                case '1':
-                    selectedOptions.equipment = text;
-                    break;
-                case '2':
-                    selectedOptions.district = text;
-                    break;
-                case '3':
-                    selectedOptions.time = text;
-                    break;
-                case '4':
-                    selectedOptions.problem = text;
-                    break;
+            
+            // Сохраняем выбранное значение
+            const value = this.getAttribute('data-value');
+            const stepNumber = step.getAttribute('data-step');
+            if (stepNumber) {
+                switch(stepNumber) {
+                    case '1':
+                        selectedOptions.equipment = value;
+                        break;
+                    case '2':
+                        selectedOptions.district = value;
+                        break;
+                    case '3':
+                        selectedOptions.time = value;
+                        break;
+                    case '4':
+                        selectedOptions.problem = value;
+                        break;
+                }
             }
 
-            // Enable next button and show next step after delay
-            const nextBtn = this.closest('.step').querySelector('.next-btn');
-            if (nextBtn) {
-                nextBtn.disabled = false;
-                setTimeout(() => {
-                    if (currentStep < totalSteps) {
-                        showStep(currentStep + 1);
-                    }
-                }, 300);
+            // Если это не последний шаг, переходим к следующему
+            if (currentStep < totalSteps - 1) {
+                showStep(currentStep + 1);
+            } else {
+                // На последнем шаге обрабатываем отправку формы
+                const name = document.querySelector('input[type="text"]').value;
+                const phone = document.querySelector('input[type="tel"]').value;
+
+                if (!name || !phone) {
+                    alert('Пожалуйста, заполните все поля');
+                    return;
+                }
+
+                // Здесь можно добавить отправку данных на сервер
+                console.log('Form submitted:', {
+                    name,
+                    phone,
+                    ...selectedOptions
+                });
+
+                // Показываем сообщение об успехе
+                alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
             }
         });
     });
 
-    // Handle back button
-    document.querySelectorAll('.prev-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            if (currentStep > 1) {
+    // Обработка кнопки "Назад"
+    const prevButtons = document.querySelectorAll('.prev-btn');
+    prevButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (currentStep > 0) {
                 showStep(currentStep - 1);
             }
         });
@@ -154,6 +166,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update selected options list
     function updateOptionsList() {
+        if (!optionsList) return;
+        
         optionsList.innerHTML = '';
         for (const [key, value] of Object.entries(selectedOptions)) {
             if (value) {
@@ -175,30 +189,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return labels[key] || key;
     }
 
-    // Form submission
-    submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const name = document.querySelector('input[type="text"]').value;
-        const phone = document.querySelector('input[type="tel"]').value;
-
-        if (!name || !phone) {
-            alert('Пожалуйста, заполните все поля');
-            return;
-        }
-
-        // Here you would typically send the data to your server
-        console.log('Form submitted:', {
-            name,
-            phone,
-            ...selectedOptions
-        });
-
-        // Show success message
-        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-    });
-
     // Initialize form
-    showStep(1);
+    showStep(0);
 
     // Функции для работы модального окна заказа
     function openOrderModal() {
@@ -241,5 +233,60 @@ document.addEventListener('DOMContentLoaded', function() {
     // Добавляем обработчики для всех кнопок "Заказать"
     document.querySelectorAll('.order-button').forEach(button => {
         button.addEventListener('click', openOrderModal);
+    });
+
+    // Бургер-меню
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (burgerMenu && navLinks) {
+        burgerMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Закрытие меню при клике на ссылку
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Закрытие меню при клике вне его области
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !burgerMenu.contains(e.target)) {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    }
+
+    // Price list functionality
+    const showMoreButtons = document.querySelectorAll('.show-more-btn');
+    
+    showMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const priceList = this.previousElementSibling;
+            const hiddenItems = priceList.querySelectorAll('.price-item.hidden');
+            const isHidden = hiddenItems.length > 0;
+            
+            if (isHidden) {
+                // Показываем все скрытые элементы
+                hiddenItems.forEach(item => {
+                    item.classList.remove('hidden');
+                });
+                this.textContent = 'Скрыть';
+            } else {
+                // Скрываем все элементы, кроме первых 5
+                const allItems = priceList.querySelectorAll('.price-item');
+                allItems.forEach((item, index) => {
+                    if (index >= 5) {
+                        item.classList.add('hidden');
+                    }
+                });
+                this.textContent = 'Показать все';
+            }
+        });
     });
 }); 
