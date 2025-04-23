@@ -289,4 +289,65 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Обработка отправки форм
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitButton.disabled = true;
+
+            try {
+                const formData = new FormData(form);
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showNotification('Успешно!', 'Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.', 'success');
+                    form.reset();
+                } else {
+                    showNotification('Ошибка!', 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
+                }
+            } catch (error) {
+                showNotification('Ошибка!', 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
+            } finally {
+                submitButton.innerHTML = originalButtonText;
+                submitButton.disabled = false;
+            }
+        });
+    });
+
+    // Функция для показа уведомлений
+    function showNotification(title, message, type) {
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <h4>${title}</h4>
+                <p>${message}</p>
+            </div>
+            <button class="notification-close">&times;</button>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Автоматическое закрытие через 5 секунд
+        setTimeout(() => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        }, 5000);
+        
+        // Закрытие по клику
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        });
+    }
 }); 
