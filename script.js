@@ -153,22 +153,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
-            const equipment = equipmentButton ? equipmentButton.getAttribute('data-value') : '';
+            const equipment = equipmentButton ? equipmentButton.querySelector('span').textContent : '';
             console.log('Выбранный тип техники:', equipment);
 
             // Получаем выбранный район
             const districtButton = document.querySelector('.step[data-step="2"] .option-btn.selected');
-            const district = districtButton ? districtButton.getAttribute('data-value') : '';
+            const district = districtButton ? districtButton.textContent.trim() : '';
             console.log('Выбранный район:', district);
 
             // Получаем выбранное время
             const timeButton = document.querySelector('.step[data-step="3"] .option-btn.selected');
-            const time = timeButton ? timeButton.getAttribute('data-value') : '';
+            const time = timeButton ? timeButton.textContent.trim() : '';
             console.log('Выбранное время:', time);
 
             // Получаем выбранную проблему
             const problemButton = document.querySelector('.step[data-step="4"] .option-btn.selected');
-            const problem = problemButton ? problemButton.getAttribute('data-value') : '';
+            const problem = problemButton ? problemButton.textContent.trim() : '';
             console.log('Выбранная проблема:', problem);
 
             console.log('Отправка данных:', { name, phone, equipment, district, time, problem });
