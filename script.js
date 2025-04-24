@@ -154,18 +154,22 @@ document.addEventListener('DOMContentLoaded', function() {
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
             const equipment = equipmentButton ? equipmentButton.getAttribute('data-value') : '';
+            console.log('Выбранный тип техники:', equipment);
 
             // Получаем выбранный район
             const districtButton = document.querySelector('.step[data-step="2"] .option-btn.selected');
             const district = districtButton ? districtButton.getAttribute('data-value') : '';
+            console.log('Выбранный район:', district);
 
             // Получаем выбранное время
             const timeButton = document.querySelector('.step[data-step="3"] .option-btn.selected');
             const time = timeButton ? timeButton.getAttribute('data-value') : '';
+            console.log('Выбранное время:', time);
 
             // Получаем выбранную проблему
             const problemButton = document.querySelector('.step[data-step="4"] .option-btn.selected');
             const problem = problemButton ? problemButton.getAttribute('data-value') : '';
+            console.log('Выбранная проблема:', problem);
 
             console.log('Отправка данных:', { name, phone, equipment, district, time, problem });
 
