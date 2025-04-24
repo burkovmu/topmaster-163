@@ -318,7 +318,7 @@ nav {
 
 .hero-highlight {
     background: rgba(231, 76, 60, 0.2);
-    padding: 2rem;
+    padding: 2.8rem;
     border-radius: 20px;
     backdrop-filter: blur(10px);
     max-width: fit-content;
@@ -2205,19 +2205,61 @@ footer {
 
 @media (max-width: 768px) {
     .how-we-work {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
     .how-we-work-header h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.2;
     }
     
     .work-steps {
         grid-template-columns: 1fr;
+        gap: 50px;
+        padding: 0 0px;
     }
     
     .work-step {
-        padding: 30px;
+        padding: 30px 20px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .step-icon i {
+        font-size: 1.5rem;
+    }
+    
+    .step-content h3 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    .step-content p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .how-we-work-badge {
+        font-size: 1rem;
+        padding: 6px 15px;
+        margin-bottom: 15px;
+    }
+    
+    .how-we-work-subtitle {
+        font-size: 1.1rem;
+        margin-top: 15px;
     }
 }
 
@@ -2528,7 +2570,7 @@ footer {
     border-radius: 30px;
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15),
                 0 0 0 1px rgba(255, 255, 255, 0.1);
-    padding: 3.5rem;
+    padding: 1.5rem;
     max-width: 900px;
     margin: 0 auto;
     backdrop-filter: blur(10px);
@@ -2556,10 +2598,14 @@ footer {
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     border: 1px solid rgba(255,255,255,0.3);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .form-header h2 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+    
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
@@ -2570,7 +2616,7 @@ footer {
 
 .form-header h2 .highlight {
     color: var(--accent-color);
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 900;
     position: center;
     display: inline-block;
@@ -2581,6 +2627,8 @@ footer {
 
 .form-header h2 .time {
     color: var(--secondary-color);
+    font-size: 2rem;
+
     font-weight: 900;
     position: relative;
     display: inline-block;
@@ -4144,6 +4192,110 @@ footer {
     to {
         transform: translateX(100%);
         opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-header h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .form-header h2 .highlight {
+        font-size: 1.5rem;
+    }
+    
+    .form-header h2 .time {
+        font-size: 1.8rem;
+    }
+    
+    .form-header p {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column;
+        padding: 80px 20px 30px;
+        transition: right 0.3s ease;
+        z-index: 999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        padding: 12px 20px;
+        font-size: 1.1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        width: 100%;
+        text-align: left;
+        border-radius: 8px;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        background: var(--accent-color);
+        color: var(--white);
+        transform: translateX(5px);
+        border-bottom-color: transparent;
+    }
+
+    .mobile-phone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 15px 25px;
+        background: linear-gradient(135deg, var(--accent-color), #c0392b);
+        color: var(--white) !important;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        text-align: center;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-phone i {
+        font-size: 1.3rem;
+        color: var(--white);
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-phone:hover {
+        background: linear-gradient(135deg, #c0392b, var(--accent-color));
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-phone:hover i {
+        transform: translateX(5px);
     }
 }
 
