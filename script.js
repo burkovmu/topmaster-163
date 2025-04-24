@@ -109,23 +109,33 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('selected');
             
             // Сохраняем выбранное значение
-            const value = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent.trim();
-            const stepNumber = step.getAttribute('data-step');
+            const stepNumber = step.getAttribute('data-step') || '1'; // Если атрибут не установлен, считаем что это первый шаг
+            console.log('Шаг:', stepNumber);
+            console.log('Текст кнопки:', this.textContent.trim());
+            
             if (stepNumber) {
                 switch(stepNumber) {
                     case '1':
-                        selectedOptions.equipment = value;
+                        const equipmentText = this.textContent.trim();
+                        selectedOptions.equipment = equipmentText;
+                        console.log('Сохранен тип техники:', equipmentText);
                         break;
                     case '2':
-                        selectedOptions.district = value;
+                        selectedOptions.district = this.textContent.trim();
+                        console.log('Сохранен район:', selectedOptions.district);
                         break;
                     case '3':
-                        selectedOptions.time = value;
+                        selectedOptions.time = this.textContent.trim();
+                        console.log('Сохранено время:', selectedOptions.time);
                         break;
                     case '4':
-                        selectedOptions.problem = value;
+                        selectedOptions.problem = this.textContent.trim();
+                        console.log('Сохранена проблема:', selectedOptions.problem);
                         break;
                 }
+                
+                // Проверяем состояние объекта после сохранения
+                console.log('Текущее состояние selectedOptions:', selectedOptions);
             }
 
             // Если это не последний шаг, переходим к следующему
@@ -428,16 +438,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Функция для показа уведомлений
     function showNotification(message, type = 'success') {
-        console.log('Показ уведомления:', message, type);
-        
-        // Удаляем предыдущие уведомления
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notification => {
-            notification.classList.add('fade-out');
-            setTimeout(() => notification.remove(), 300);
-        });
-
-        // Создаем новое уведомление
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
         
@@ -467,4 +467,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 300);
         }, 5000);
     }
-}); 
+});
