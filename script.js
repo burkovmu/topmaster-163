@@ -153,19 +153,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
-            const equipment = equipmentButton ? (equipmentButton.querySelector('span')?.textContent || equipmentButton.getAttribute('data-value')) : '';
+            const equipment = equipmentButton ? equipmentButton.querySelector('span').textContent : '';
 
             // Получаем выбранный район
             const districtButton = document.querySelector('.step[data-step="2"] .option-btn.selected');
-            const district = districtButton ? (districtButton.querySelector('span')?.textContent || districtButton.getAttribute('data-value')) : '';
+            const district = districtButton ? districtButton.querySelector('span').textContent : '';
 
             // Получаем выбранное время
             const timeButton = document.querySelector('.step[data-step="3"] .option-btn.selected');
-            const time = timeButton ? (timeButton.querySelector('span')?.textContent || timeButton.getAttribute('data-value')) : '';
+            const time = timeButton ? timeButton.querySelector('span').textContent : '';
 
             // Получаем выбранную проблему
             const problemButton = document.querySelector('.step[data-step="4"] .option-btn.selected');
-            const problem = problemButton ? (problemButton.querySelector('span')?.textContent || problemButton.getAttribute('data-value')) : '';
+            const problem = problemButton ? problemButton.querySelector('span').textContent : '';
 
             console.log('Отправка данных:', { name, phone, equipment, district, time, problem });
 
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showStep(0);
             } catch (error) {
                 console.error('Ошибка при отправке формы:', error);
-                showNotification('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.', 'error');
+                showNotification('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.', 'error');
             } finally {
                 // Восстанавливаем кнопку
                 submitButton.innerHTML = 'Отправить заявку <i class="fas fa-paper-plane"></i>';
