@@ -153,19 +153,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
-            const equipment = equipmentButton?.querySelector('span')?.textContent || '';
+            const equipment = equipmentButton ? equipmentButton.querySelector('span').textContent : '';
 
             // Получаем выбранный район
             const districtButton = document.querySelector('.step[data-step="2"] .option-btn.selected');
-            const district = districtButton?.querySelector('span')?.textContent || '';
+            const district = districtButton ? districtButton.textContent.trim() : '';
 
             // Получаем выбранное время
             const timeButton = document.querySelector('.step[data-step="3"] .option-btn.selected');
-            const time = timeButton?.querySelector('span')?.textContent || '';
+            const time = timeButton ? timeButton.textContent.trim() : '';
 
             // Получаем выбранную проблему
             const problemButton = document.querySelector('.step[data-step="4"] .option-btn.selected');
-            const problem = problemButton?.querySelector('span')?.textContent || '';
+            const problem = problemButton ? problemButton.textContent.trim() : '';
 
             console.log('Отправка данных:', { name, phone, equipment, district, time, problem });
 

@@ -15,11 +15,10 @@ export default async function handler(req, res) {
     let message = "📝 Новая заявка с сайта:\n\n";
     message += `👤 Имя: ${name}\n`;
     message += `📱 Телефон: ${phone}\n`;
-    if (device) message += `🔧 Тип техники: ${device}\n`;
-    if (model) message += `📦 Модель техники: ${model}\n`;
-    if (problem) message += `⚠️ Описание проблемы: ${problem}\n`;
-    if (district) message += `📍 Район: ${district}\n`;
-    if (time) message += `⏰ Время ремонта: ${time}\n`;
+    message += `🔧 Тип техники: ${device}\n`;
+    message += `📍 Район: ${district}\n`;
+    message += `⏰ Время ремонта: ${time}\n`;
+    message += `⚠️ Описание проблемы: ${problem}\n`;
 
     console.log('Отправляем сообщение в Telegram:', message);
 
