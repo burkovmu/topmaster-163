@@ -292,7 +292,25 @@
                         <div class="form-group">
                             <input type="tel" placeholder="Ваш телефон" required>
                         </div>
-                        
+                        <div class="form-group">
+                            <select name="device" required>
+                                <option value="" disabled selected>Выберите тип техники</option>
+                                <option value="Холодильник">Холодильник</option>
+                                <option value="Морозильная камера">Морозильная камера</option>
+                                <option value="Стиральная машина">Стиральная машина</option>
+                                <option value="Посудомоечная машина">Посудомоечная машина</option>
+                                <option value="Духовой шкаф">Духовой шкаф</option>
+                                <option value="Варочная панель">Варочная панель</option>
+                                <option value="Микроволновая печь">Микроволновая печь</option>
+                                <option value="Кондиционер">Кондиционер</option>
+                                <option value="Другая техника">Другая техника</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="model" placeholder="Модель техники" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="problem" placeholder="Опишите проблему" required></textarea>
                         </div>
                         <div class="form-navigation">
                             <button class="nav-btn prev-btn">
@@ -1091,6 +1109,9 @@
                                 <option value="Кондиционер">Кондиционер</option>
                                 <option value="Другая техника">Другая техника</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="model" placeholder="Модель" required>
                         </div>
                         <div class="form-group">
                             <textarea name="problem" placeholder="Опишите проблему" required></textarea>
