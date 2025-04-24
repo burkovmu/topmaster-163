@@ -233,21 +233,36 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Здесь можно добавить отправку данных на сервер
-        console.log('Отправка формы:', { 
-            name, 
-            phone, 
-            deviceType, 
-            deviceModel, 
-            problemDescription 
+        // Отправка данных на сервер
+        fetch('/api/send-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                phone,
+                device: deviceType,
+                model: deviceModel,
+                problem: problemDescription
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Очистка формы и закрытие модального окна
+                this.reset();
+                closeOrderModal();
+                // Показываем сообщение об успешной отправке
+                alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
+            } else {
+                throw new Error(data.message || 'Ошибка при отправке формы');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
         });
-        
-        // Очистка формы и закрытие модального окна
-        this.reset();
-        closeOrderModal();
-        
-        // Показываем сообщение об успешной отправке
-        alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
     });
 
     // Добавляем обработчики для всех кнопок "Заказать"
