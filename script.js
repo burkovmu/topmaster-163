@@ -302,9 +302,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 const formData = new FormData(form);
-                const response = await fetch(form.action, {
+                const formObject = {};
+                formData.forEach((value, key) => {
+                    formObject[key] = value;
+                });
+
+                const response = await fetch('/api/send-form', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formObject)
                 });
                 
                 const result = await response.json();
@@ -313,9 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     showNotification('Успешно!', 'Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.', 'success');
                     form.reset();
                 } else {
-                    showNotification('Ошибка!', 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
+                    showNotification('Ошибка!', result.message || 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
                 }
             } catch (error) {
+                console.error('Error:', error);
                 showNotification('Ошибка!', 'Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
             } finally {
                 submitButton.innerHTML = originalButtonText;
