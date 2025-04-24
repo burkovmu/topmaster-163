@@ -10,14 +10,14 @@ export default async function handler(req, res) {
     const chatId = "-1002674869783";
 
     // Формируем сообщение для Telegram
-    let message = "Новая заявка с сайта:\n\n";
-    message += `Имя: ${name}\n`;
-    message += `Телефон: ${phone}\n`;
-    if (device) message += `Тип техники: ${device}\n`;
-    if (model) message += `Модель техники: ${model}\n`;
-    if (problem) message += `Описание проблемы: ${problem}\n`;
-    if (district) message += `Район: ${district}\n`;
-    if (time) message += `Время ремонта: ${time}\n`;
+    let message = "📝 Новая заявка с сайта:\n\n";
+    message += `👤 Имя: ${name}\n`;
+    message += `📱 Телефон: ${phone}\n`;
+    if (device) message += `🔧 Тип техники: ${device}\n`;
+    if (model) message += `📦 Модель техники: ${model}\n`;
+    if (problem) message += `⚠️ Описание проблемы: ${problem}\n`;
+    if (district) message += `📍 Район: ${district}\n`;
+    if (time) message += `⏰ Время ремонта: ${time}\n`;
 
     try {
         const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {

@@ -149,6 +149,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            // Получаем выбранный тип техники
+            const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
+            const equipment = equipmentButton ? equipmentButton.getAttribute('data-value') : '';
+
             // Отправка данных на сервер
             fetch('/api/send-form', {
                 method: 'POST',
@@ -158,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify({
                     name,
                     phone,
-                    device: selectedOptions.equipment,
+                    device: equipment,
                     problem: selectedOptions.problem,
                     district: selectedOptions.district,
                     time: selectedOptions.time
