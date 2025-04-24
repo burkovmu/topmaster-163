@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
-            const equipment = equipmentButton ? equipmentButton.querySelector('span').textContent : '';
+            const equipment = equipmentButton ? equipmentButton.getAttribute('data-value') : '';
             console.log('Выбранный тип техники:', equipment);
 
             // Получаем выбранный район
