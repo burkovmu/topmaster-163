@@ -24,21 +24,31 @@ $data = [
     'parse_mode' => 'HTML'
 ];
 
-$options = [
-    'http' => [
-        'method' => 'POST',
-        'header' => 'Content-Type: application/x-www-form-urlencoded',
-        'content' => http_build_query($data)
-    ]
-];
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_URL, $url);
+curl_setopt($ch, CURLOPT_POST, 1);
+curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 
-$context = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
+$result = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$error = curl_error($ch);
+curl_close($ch);
 
-// Возвращаем ответ
-if ($result !== false) {
-    echo json_encode(['success' => true, 'message' => 'Заявка успешно отправлена']);
+// Проверяем результат
+if ($result === false) {
+    // Ошибка cURL
+    error_log("Telegram API Error: " . $error);
+    echo json_encode(['success' => false, 'message' => 'Ошибка при отправке заявки: ' . $error]);
 } else {
-    echo json_encode(['success' => false, 'message' => 'Ошибка при отправке заявки']);
+    $response = json_decode($result, true);
+    if ($response && $response['ok']) {
+        echo json_encode(['success' => true, 'message' => 'Заявка успешно отправлена']);
+    } else {
+        error_log("Telegram API Response: " . $result);
+        echo json_encode(['success' => false, 'message' => 'Ошибка при отправке заявки. Пожалуйста, попробуйте позже.']);
+    }
 }
 ?> 
