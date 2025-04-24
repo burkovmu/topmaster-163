@@ -135,8 +135,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 // На последнем шаге обрабатываем отправку формы
                 const name = document.querySelector('input[type="text"]').value;
                 const phone = document.querySelector('input[type="tel"]').value;
+                const deviceType = document.querySelector('select[name="device"]').value;
+                const deviceModel = document.querySelector('input[name="model"]').value;
+                const problemDescription = document.querySelector('textarea[name="problem"]').value;
 
-                if (!name || !phone) {
+                if (!name || !phone || !deviceType || !deviceModel || !problemDescription) {
                     alert('Пожалуйста, заполните все поля');
                     return;
                 }
@@ -145,6 +148,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log('Form submitted:', {
                     name,
                     phone,
+                    deviceType,
+                    deviceModel,
+                    problemDescription,
                     ...selectedOptions
                 });
 
@@ -218,9 +224,23 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const name = this.querySelector('input[name="name"]').value;
         const phone = this.querySelector('input[name="phone"]').value;
+        const deviceType = this.querySelector('select[name="device"]').value;
+        const deviceModel = this.querySelector('input[name="model"]').value;
+        const problemDescription = this.querySelector('textarea[name="problem"]').value;
+        
+        if (!name || !phone || !deviceType || !deviceModel || !problemDescription) {
+            alert('Пожалуйста, заполните все поля');
+            return;
+        }
         
         // Здесь можно добавить отправку данных на сервер
-        console.log('Отправка формы:', { name, phone });
+        console.log('Отправка формы:', { 
+            name, 
+            phone, 
+            deviceType, 
+            deviceModel, 
+            problemDescription 
+        });
         
         // Очистка формы и закрытие модального окна
         this.reset();
