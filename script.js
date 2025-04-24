@@ -204,10 +204,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Очищаем форму
                     document.querySelector('.step[data-step="5"] .contact-form').reset();
                     // Показываем уведомление об успехе
-                    showNotification('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                    showNotification(data.message || 'Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
                     // Возвращаемся к первому шагу
                     showStep(0);
                 } else {
+                    console.error('Ошибка в ответе сервера:', data);
                     throw new Error(data.message || 'Ошибка при отправке формы');
                 }
             } catch (error) {

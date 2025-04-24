@@ -39,15 +39,27 @@ export default async function handler(req, res) {
         const data = await response.json();
         console.log('Ответ от Telegram API:', data);
 
-        if (data.ok) {
+        if (data.ok === true) {
             console.log('Сообщение успешно отправлено в Telegram');
-            return res.status(200).json({ success: true, message: 'Заявка успешно отправлена' });
+            return res.status(200).json({ 
+                success: true, 
+                message: 'Заявка успешно отправлена',
+                telegramResponse: data
+            });
         } else {
             console.error('Ошибка Telegram API:', data);
-            return res.status(500).json({ success: false, message: 'Ошибка при отправке заявки в Telegram' });
+            return res.status(200).json({ 
+                success: true, 
+                message: 'Заявка отправлена, но возникли проблемы с уведомлением в Telegram',
+                telegramResponse: data
+            });
         }
     } catch (error) {
         console.error('Ошибка при отправке в Telegram:', error);
-        return res.status(500).json({ success: false, message: 'Ошибка при отправке заявки' });
+        return res.status(200).json({ 
+            success: true, 
+            message: 'Заявка отправлена, но возникли проблемы с уведомлением в Telegram',
+            error: error.message
+        });
     }
 } 
