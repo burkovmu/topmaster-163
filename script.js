@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('selected');
             
             // Сохраняем выбранное значение
-            const value = this.getAttribute('data-value');
+            const value = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent.trim();
             const stepNumber = step.getAttribute('data-step');
             if (stepNumber) {
                 switch(stepNumber) {
