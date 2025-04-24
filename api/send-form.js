@@ -4,8 +4,8 @@ export default async function handler(req, res) {
         return res.status(405).json({ success: false, message: 'Метод не разрешен' });
     }
 
-    const { name, phone, device, model, problem, district, time } = req.body;
-    console.log('Получены данные формы:', { name, phone, device, model, problem, district, time });
+    const { name, phone, device, model, problem, district, time, address } = req.body;
+    console.log('Получены данные формы:', { name, phone, device, model, problem, district, time, address });
 
     // Настройки для отправки в Telegram
     const botToken = "7803594149:AAEQCYuCXLxtTBli0haikuhfehWJvzHcfLI";
@@ -16,8 +16,10 @@ export default async function handler(req, res) {
     message += `👤 Имя: ${name}\n`;
     message += `📱 Телефон: ${phone}\n`;
     message += `🔧 Тип техники: ${device}\n`;
+    message += `📋 Модель: ${model}\n`;
     message += `📍 Район: ${district}\n`;
     message += `⏰ Время ремонта: ${time}\n`;
+    message += `🏠 Адрес: ${address}\n`;
     message += `⚠️ Описание проблемы: ${problem}\n`;
 
     console.log('Отправляем сообщение в Telegram:', message);
