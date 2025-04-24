@@ -138,53 +138,86 @@ document.addEventListener('DOMContentLoaded', function() {
     // Обработка кнопки отправки заявки
     const submitButton = document.querySelector('.step[data-step="5"] .next-btn');
     if (submitButton) {
-        submitButton.addEventListener('click', function(e) {
+        submitButton.addEventListener('click', async function(e) {
             e.preventDefault();
+            console.log('Нажата кнопка отправки');
             
             const name = document.querySelector('.step[data-step="5"] input[type="text"]').value;
             const phone = document.querySelector('.step[data-step="5"] input[type="tel"]').value;
 
             if (!name || !phone) {
-                alert('Пожалуйста, заполните все поля');
+                console.log('Пустые поля формы');
+                showNotification('Пожалуйста, заполните все поля', 'error');
                 return;
             }
 
             // Получаем выбранный тип техники
             const equipmentButton = document.querySelector('.step[data-step="1"] .option-btn.selected');
-            const equipment = equipmentButton ? equipmentButton.getAttribute('data-value') : '';
+            const equipment = equipmentButton ? (equipmentButton.querySelector('span')?.textContent || equipmentButton.getAttribute('data-value')) : '';
 
-            // Отправка данных на сервер
-            fetch('/api/send-form', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name,
-                    phone,
-                    device: equipment,
-                    problem: selectedOptions.problem,
-                    district: selectedOptions.district,
-                    time: selectedOptions.time
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
+            // Получаем выбранный район
+            const districtButton = document.querySelector('.step[data-step="2"] .option-btn.selected');
+            const district = districtButton ? (districtButton.querySelector('span')?.textContent || districtButton.getAttribute('data-value')) : '';
+
+            // Получаем выбранное время
+            const timeButton = document.querySelector('.step[data-step="3"] .option-btn.selected');
+            const time = timeButton ? (timeButton.querySelector('span')?.textContent || timeButton.getAttribute('data-value')) : '';
+
+            // Получаем выбранную проблему
+            const problemButton = document.querySelector('.step[data-step="4"] .option-btn.selected');
+            const problem = problemButton ? (problemButton.querySelector('span')?.textContent || problemButton.getAttribute('data-value')) : '';
+
+            console.log('Отправка данных:', { name, phone, equipment, district, time, problem });
+
+            // Показываем индикатор загрузки
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+            submitButton.disabled = true;
+
+            try {
+                // Отправка данных на сервер
+                const response = await fetch('/api/send-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        device: equipment,
+                        problem: problem,
+                        district: district,
+                        time: time
+                    })
+                });
+
+                console.log('Статус ответа:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('Данные ответа:', data);
+
                 if (data.success) {
+                    console.log('Успешная отправка формы');
                     // Очищаем форму
                     document.querySelector('.step[data-step="5"] .contact-form').reset();
-                    // Показываем сообщение об успехе
-                    alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                    // Показываем уведомление об успехе
+                    showNotification('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
                     // Возвращаемся к первому шагу
                     showStep(0);
                 } else {
                     throw new Error(data.message || 'Ошибка при отправке формы');
                 }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
-            });
+            } catch (error) {
+                console.error('Ошибка при отправке формы:', error);
+                showNotification('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.', 'error');
+            } finally {
+                // Восстанавливаем кнопку
+                submitButton.innerHTML = 'Отправить заявку <i class="fas fa-paper-plane"></i>';
+                submitButton.disabled = false;
+            }
         });
     }
 
@@ -397,29 +430,44 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Функция для показа уведомлений
-    function showNotification(title, message, type) {
+    function showNotification(message, type = 'success') {
+        console.log('Показ уведомления:', message, type);
+        
+        // Удаляем предыдущие уведомления
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => {
+            notification.classList.add('fade-out');
+            setTimeout(() => notification.remove(), 300);
+        });
+
+        // Создаем новое уведомление
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
+        
+        // Добавляем иконку в зависимости от типа
+        const icon = type === 'success' ? '✓' : '⚠️';
+        
         notification.innerHTML = `
             <div class="notification-content">
-                <h4>${title}</h4>
+                <span class="notification-icon">${icon}</span>
                 <p>${message}</p>
             </div>
-            <button class="notification-close">&times;</button>
         `;
         
+        // Добавляем уведомление в DOM
         document.body.appendChild(notification);
+        
+        // Принудительно обновляем стили
+        notification.style.display = 'block';
         
         // Автоматическое закрытие через 5 секунд
         setTimeout(() => {
             notification.classList.add('fade-out');
-            setTimeout(() => notification.remove(), 300);
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
         }, 5000);
-        
-        // Закрытие по клику
-        notification.querySelector('.notification-close').addEventListener('click', () => {
-            notification.classList.add('fade-out');
-            setTimeout(() => notification.remove(), 300);
-        });
     }
 }); 
