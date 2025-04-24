@@ -131,49 +131,58 @@ document.addEventListener('DOMContentLoaded', function() {
             // Если это не последний шаг, переходим к следующему
             if (currentStep < totalSteps - 1) {
                 showStep(currentStep + 1);
-            } else {
-                // На последнем шаге обрабатываем отправку формы
-                const name = document.querySelector('input[type="text"]').value;
-                const phone = document.querySelector('input[type="tel"]').value;
-
-                if (!name || !phone) {
-                    alert('Пожалуйста, заполните все поля');
-                    return;
-                }
-
-                // Отправка данных на сервер
-                fetch('/api/send-form', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        name,
-                        phone,
-                        device: selectedOptions.equipment,
-                        problem: selectedOptions.problem,
-                        district: selectedOptions.district,
-                        time: selectedOptions.time
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Очищаем форму
-                        this.reset();
-                        // Показываем сообщение об успехе
-                        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-                    } else {
-                        throw new Error(data.message || 'Ошибка при отправке формы');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
-                });
             }
         });
     });
+
+    // Обработка кнопки отправки заявки
+    const submitButton = document.querySelector('.step[data-step="5"] .next-btn');
+    if (submitButton) {
+        submitButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const name = document.querySelector('.step[data-step="5"] input[type="text"]').value;
+            const phone = document.querySelector('.step[data-step="5"] input[type="tel"]').value;
+
+            if (!name || !phone) {
+                alert('Пожалуйста, заполните все поля');
+                return;
+            }
+
+            // Отправка данных на сервер
+            fetch('/api/send-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name,
+                    phone,
+                    device: selectedOptions.equipment,
+                    problem: selectedOptions.problem,
+                    district: selectedOptions.district,
+                    time: selectedOptions.time
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Очищаем форму
+                    document.querySelector('.step[data-step="5"] .contact-form').reset();
+                    // Показываем сообщение об успехе
+                    alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                    // Возвращаемся к первому шагу
+                    showStep(0);
+                } else {
+                    throw new Error(data.message || 'Ошибка при отправке формы');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
+            });
+        });
+    }
 
     // Обработка кнопки "Назад"
     const prevButtons = document.querySelectorAll('.prev-btn');
