@@ -26,14 +26,33 @@ document.addEventListener('DOMContentLoaded', function() {
                 formObject[key] = value;
             });
 
-            // Здесь можно добавить отправку данных на сервер
-            console.log('Отправка формы:', formObject);
+            // Отправляем данные в Telegram
+            fetch('/api/send-form', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: formObject.name,
+                    phone: formObject.phone,
+                    equipment: formObject.device,
+                    model: formObject.model,
+                    address: formObject.address,
+                    problem: formObject.problem
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Успешно отправлено:', data);
+                showNotification('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                showNotification('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
+            });
             
             // Очищаем форму
             this.reset();
-            
-            // Показываем сообщение об успехе
-            alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
         });
     }
 
