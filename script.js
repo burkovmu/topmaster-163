@@ -135,27 +135,42 @@ document.addEventListener('DOMContentLoaded', function() {
                 // На последнем шаге обрабатываем отправку формы
                 const name = document.querySelector('input[type="text"]').value;
                 const phone = document.querySelector('input[type="tel"]').value;
-                const deviceType = document.querySelector('select[name="device"]').value;
-                const deviceModel = document.querySelector('input[name="model"]').value;
-                const problemDescription = document.querySelector('textarea[name="problem"]').value;
 
-                if (!name || !phone || !deviceType || !deviceModel || !problemDescription) {
+                if (!name || !phone) {
                     alert('Пожалуйста, заполните все поля');
                     return;
                 }
 
-                // Здесь можно добавить отправку данных на сервер
-                console.log('Form submitted:', {
-                    name,
-                    phone,
-                    deviceType,
-                    deviceModel,
-                    problemDescription,
-                    ...selectedOptions
+                // Отправка данных на сервер
+                fetch('/api/send-form', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        device: selectedOptions.equipment,
+                        problem: selectedOptions.problem,
+                        district: selectedOptions.district,
+                        time: selectedOptions.time
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Очищаем форму
+                        this.reset();
+                        // Показываем сообщение об успехе
+                        alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                    } else {
+                        throw new Error(data.message || 'Ошибка при отправке формы');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Произошла ошибка при отправке формы. Пожалуйста, попробуйте позже.');
                 });
-
-                // Показываем сообщение об успехе
-                alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
             }
         });
     });
